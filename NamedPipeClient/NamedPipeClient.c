@@ -68,7 +68,7 @@ int main()
 		isSuccess = SetNamedPipeHandleState(hNamedPipe, &dwMode, NULL, NULL);
 		if (!isSuccess)
 		{
-			printf("Сервер не отвечает\n");
+			printf("Бот не отвечает\n");
 			flag_otvet = TRUE;
 		}
 		else
@@ -76,7 +76,7 @@ int main()
 			//printf("Соединение установлено:\n");
 			if (flag_otvet)
 			{
-				printf("Введите число для сервера:\n");
+				printf("Введите число для Бота:\n");
 				gets(message);
 				buffer = &message;
 				WriteFile(hNamedPipe, buffer, size_buffer, &actual_written, NULL);
@@ -85,7 +85,7 @@ int main()
 			SuccessRead = ReadFile(hNamedPipe, buffer, size_buffer, &actual_readen, NULL);
 			if (SuccessRead)
 			{
-				printf("\nСервер пишет: ");
+				printf("\nБот пишет: ");
 				printf(buffer);
 				putchar('\n');
 				flag_otvet = TRUE;
